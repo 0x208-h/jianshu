@@ -28,7 +28,8 @@
   color: #333;
 }
 
-.header-nav span{
+.header-nav .heder-download,
+.header-nav .header-home-page{
   line-height: 56px;
   padding: 0 15px;
   font-size: 16px;
@@ -75,18 +76,39 @@
   left: 0;
   top: 56px;
   width: 240px;
-  height: 100px;
+  /* height: 100px; */
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
   border-radius: 4px;
-  background-color: #bfa;
+  /* background-color: #bfa; */
 }
 
 .header-search-info-title{
-  margin-top: 20px;
-  margin-left: 15px;
+  margin: 20px 15px 0;
   line-height: 20px;
   font-size: 14px;
   color: #969696;
+}
+
+.header-search-info-switch{
+  float: right;
+  font-size: 12px;
+}
+.header-search-info-item-wrapper{
+  margin: 0 15px;
+  overflow: hidden;
+}
+
+.header-search-info-item{
+  line-height: 20px;
+  padding: 0 5px;
+  font-size: 12px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  color: #787878;
+  border-radius: 3px;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .header-search::placeholder{

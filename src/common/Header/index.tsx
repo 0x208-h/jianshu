@@ -4,7 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { stateTypes } from "./type";
-import { handleBlur, handleFocus } from "./store";
+import { handleBlur, handleFocus, getList } from "./store";
 import './index.css'
 
 interface HeaderProps extends stateTypes {
@@ -17,15 +17,39 @@ const Header = (props: HeaderProps) => {
   // const disptch = useDispatch()
 
   // const focused = useSelector(selectFocused)
-  const { focused, handleBlur, handleFocus } = props
+  const { focused, handleBlur, handleFocus, list } = props
+
   console.log(focused, 'focus')
+
+  const getListArea = (show: boolean) => {
+    if(show) {
+      return (
+        <div className="header-search-info">
+          <div className="header-search-info-title">
+            热门搜索
+            <span className="header-search-info-switch">换一批</span>
+          </div>
+          <div className="header-search-info-item-wrapper">
+            <a className="header-search-info-item" href="/">教育</a>
+            <a className="header-search-info-item" href="/">教育</a>
+            <a className="header-search-info-item" href="/">教育</a>
+            <a className="header-search-info-item" href="/">教育</a>
+            <a className="header-search-info-item" href="/">教育</a>
+          </div>
+        </div>
+      )
+    } else {
+      return (<></>)
+    }
+  }
+
   return (
     <div className="header-wrapper">
       <div className="header-logo" />
       <div className="header-nav">
         <div>
           <span className="header-home-page">首页</span>
-          <span>下载App</span>
+          <span className="heder-download">下载App</span>
           <div className="header-search-wrapper">
             <input 
               type="text"
@@ -36,9 +60,7 @@ const Header = (props: HeaderProps) => {
               onFocus={handleFocus}
               onBlur={handleBlur}
             />
-            <div className="header-search-info">
-              <div className="header-search-info-title">热门搜索</div>
-            </div>
+            {getListArea(focused)}
           </div>
           
         </div>
@@ -56,12 +78,14 @@ const Header = (props: HeaderProps) => {
 }
 
 const mapStateToProps = (state: { header: stateTypes}) => ({
-  focused: state.header.focused
+  focused: state.header.focused,
+  list: state.header.list
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     handleFocus(){
+      dispatch(getList())
       dispatch(handleFocus())
     },
     handleBlur(){

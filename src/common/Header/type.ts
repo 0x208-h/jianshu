@@ -6,4 +6,5 @@ export type actionTypes =  {
 
 export type stateTypes = {
   focused: boolean
+  list: string[]
 }

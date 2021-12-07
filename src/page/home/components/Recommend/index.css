@@ -1,0 +1,10 @@
+.recommend-wrapper{
+  margin: 30px 0 ;
+  width: 280px;
+}
+
+.recommend-item {
+  width: 280px;
+  height: 50px;
+  background: url(https://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png);
+}

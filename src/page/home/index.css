@@ -1,0 +1,36 @@
+.home-wrapper{
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.home-left{
+  margin-left: 15px;
+  padding-top: 30px;
+  width: 625px;
+  float: left;
+}
+
+.home-right{
+  width: 280px;
+  float: right;
+}
+
+.home-banner {
+  width: 625px;
+  height: 270px;
+  background-color: #bfa;
+}
+
+.home-back-top{
+  position: fixed;  
+  right: 100px;
+  bottom: 100px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  border-radius: 20px;
+}

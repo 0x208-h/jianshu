@@ -23,7 +23,7 @@
   width: 960px;
   height: 100%;
   margin: 0 auto;
-  margin-right: 70px;
+  /* margin-right: 70px; */
   box-sizing: border-box;
   color: #333;
 }
@@ -38,7 +38,7 @@
 }
 
 .header-right{
-  margin-right: 140px;
+  /* margin-right: 140px; */
   color: #969696;
 }
 
@@ -81,7 +81,7 @@
   /* height: 100px; */
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
   border-radius: 4px;
-  /* background-color: #bfa; */
+  background-color: white;
 }
 
 .header-search-info-title{
@@ -136,7 +136,7 @@
 
 .header-btn{
   float: right;
-  margin-right: 20px;
+  margin-right: 12px;
   padding: 0 20px;
   margin-top: 9px;
   line-height: 38px;

@@ -1,4 +1,5 @@
 import React, { useRef, MutableRefObject } from "react";
+import { Link } from "react-router-dom";
 // import { useDispatch, useSelector } from  'react-redux'
 // import { onBlur, onFocus, selectFocused } from '../../toolkit/headerSlice'
 import { connect } from "react-redux";
@@ -93,7 +94,9 @@ const Header = (props: HeaderProps) => {
 
   return (
     <div className="header-wrapper">
-      <div className="header-logo" />
+      <Link to="/">
+        <div className="header-logo" />
+      </Link>
       <div className="header-nav">
         <div>
           <span className="header-home-page">首页</span>
@@ -163,7 +166,7 @@ const mapDispatchToProps = (
           spin.current?.style.transform.replace(/[^0-9]/gi, " ") || "",
           10
         ) || 0;
-         spin.current.style.transform = `rotate(${originAngle + 360}deg)`;
+      spin.current.style.transform = `rotate(${originAngle + 360}deg)`;
       if (page < totalPage) {
         dispatch(handlePageChange(page + 1));
       } else {

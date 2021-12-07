@@ -13,7 +13,7 @@
   display: block;
   width: 100px;
   height: 56px;
-  background: url('../../images/logo.png');
+  background: url('../../static/logo.png');
   background-size: contain;
 }
 
@@ -29,7 +29,9 @@
 }
 
 .header-nav .heder-download,
-.header-nav .header-home-page{
+.header-nav .header-home-page,
+.header-nav .header-aa,
+.header-nav .header-login{
   line-height: 56px;
   padding: 0 15px;
   font-size: 16px;
@@ -74,7 +76,7 @@
 .header-search-info{
   position: absolute;
   left: 0;
-  top: 56px;
+  top: 58px;
   width: 240px;
   /* height: 100px; */
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
@@ -92,6 +94,16 @@
 .header-search-info-switch{
   float: right;
   font-size: 12px;
+  cursor: pointer;
+}
+
+.icon-spin{
+  font-size: 12px;
+  display: block;
+  float: left;
+  transform-origin: center;
+  margin-right: 2px;
+  transition: all .2s ease-in;
 }
 .header-search-info-item-wrapper{
   margin: 0 15px;

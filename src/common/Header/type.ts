@@ -1,10 +1,9 @@
 
-export type actionTypes =  {
-  type: string
-  payload?: boolean
-}
 
-export type stateTypes = {
+export type StateTypes = {
   focused: boolean
+  mouseIn: boolean
   list: string[]
+  page?: number,
+  totalPage?: number
 }

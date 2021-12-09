@@ -9,6 +9,8 @@ import store from "./store";
 
 const Home = lazy(() => import("@/page/Home"));
 const Detail = lazy(() => import("@/page/Detail"));
+const Login = lazy(() => import('@/page/Login'))
+const Write = lazy(() => import('@/page/Write'))
 
 function App() {
   return (
@@ -17,8 +19,11 @@ function App() {
         <Header />
         <Suspense fallback={null}>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/detail" element={<Detail />}></Route>
+            <Route path="/" element={<Home />}/>
+            <Route path="/detail/:id" element={<Detail />}/>
+            <Route path="/login" element={<Login />}/>
+            {/* <Route path="/detail" element={<Detail />}></Route> */}
+            <Route path="/write" element={<Write />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

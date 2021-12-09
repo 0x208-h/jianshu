@@ -1,6 +1,7 @@
 import { fetchHomeData, getHomeMoreList } from "./../api";
-import { ThunkDispatch } from "redux-thunk";
-import { AnyAction } from "redux";
+// import { ThunkDispatch } from "redux-thunk";
+// import { AnyAction } from "redux";
+import { Dispatch } from "redux";
 import { StateTypes, ArticleList } from "../type";
 import { CHANGE_HOME_DARA, HOME_MORE_LIST, TOGGLE_SCROLL_TOP } from "./index";
 
@@ -15,7 +16,7 @@ const getMoreListData = (payload: ArticleList[]) => ({
 })
 
 export const getMoreList =
-  () => async (dispatch: ThunkDispatch<StateTypes, void, AnyAction>) => {
+  () => async (dispatch: Dispatch) => {
     try{
       const res = await getHomeMoreList()
       if(res.success) dispatch(getMoreListData(res.data?.articleList))
@@ -24,7 +25,7 @@ export const getMoreList =
     }
   };
 export const homeData =
-  () => async (dispatch: ThunkDispatch<StateTypes, void, AnyAction>) => {
+  () => async (dispatch: Dispatch) => {
     try {
       const res = await fetchHomeData();
       if (res.success) dispatch(getHomeData(res.data));

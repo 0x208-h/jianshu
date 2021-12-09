@@ -15,7 +15,8 @@ const List: FC<ListProps> = ({ articleList, getMoreList }) => {
   return (
     <div>
       {articleList.map((item, index) => (
-        <Link to="/detail" key={index}>
+        <Link to={`detail/${item.id}`} key={index}>
+        {/*  <Link to={`detail?id=${item.id}`} key={index}> */}
           <div className="list-item">
             <img src={item.imgUrl} className="list-item-pic" alt="" />
             <div className="list-info">

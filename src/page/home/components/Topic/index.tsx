@@ -7,11 +7,11 @@ import "./index.css";
 import { AnyAction } from "redux";
 
 type TopicProps = {
-  topicList: TopicListTypes[]
+  topicList: TopicListTypes[];
 };
 
 const Topic: FC<TopicProps> = ({ topicList }) => {
-  console.log('topic is update')
+  console.log("topic is update");
   return (
     <div className="topic-wrapper">
       {topicList.map((item) => (

@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { AnyAction, bindActionCreators } from "redux";
 import { StateTypes } from "./type";
+import { LoginStateType } from "../../page/Login/type";
 import {
   handleBlur,
   handleFocus,
@@ -15,11 +16,13 @@ import {
   handleMouseLeave,
   handlePageChange,
 } from "./store";
+import { loginOut } from "../../page/Login/store";
 import "./index.css";
 
-interface HeaderProps extends StateTypes {
+interface HeaderProps extends StateTypes, LoginStateType {
   handleFocus: (list: string[]) => void;
   handleBlur?: () => void;
+  loginOut: () => void;
   handleMouseEnter?: () => void;
   handleMouseLeave?: () => void;
   handlePageChange: (
@@ -39,8 +42,10 @@ const Header = (props: HeaderProps) => {
     focused,
     mouseIn,
     list,
+    isLogin,
     page = 1,
     totalPage = 0,
+    loginOut,
     handleBlur,
     handleFocus,
     handleMouseEnter,
@@ -120,23 +125,43 @@ const Header = (props: HeaderProps) => {
         </div>
         <div className="header-right">
           <span className="header-aa">Aa</span>
-          <span className="header-login">登陆</span>
+          {isLogin ? (
+            <span
+              className="header-login"
+              onClick={loginOut}
+              style={{ cursor: "pointer" }}
+            >
+              退出
+            </span>
+          ) : (
+            <Link to="/login">
+              <span className="header-login">登陆</span>
+            </Link>
+          )}
         </div>
       </div>
       <div className="header-right-btns">
+        <Link to="/write">
+          <button className="header-btn write">写文章</button>
+        </Link>
         <button className="header-btn reg">注册</button>
-        <button className="header-btn write">写文章</button>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state: { header: StateTypes }) => ({
+type stateProps = {
+  header: StateTypes;
+  login: LoginStateType;
+};
+
+const mapStateToProps = (state: stateProps) => ({
   focused: state.header.focused,
   list: state.header.list,
   page: state.header.page,
   mouseIn: state.header.mouseIn,
   totalPage: state.header.totalPage,
+  isLogin: state.login.isLogin,
 });
 
 const mapDispatchToProps = (
@@ -172,6 +197,9 @@ const mapDispatchToProps = (
       } else {
         dispatch(handlePageChange(1));
       }
+    },
+    loginOut() {
+      dispatch(loginOut());
     },
   };
 };

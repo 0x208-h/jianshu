@@ -1,5 +1,6 @@
 
 .header-wrapper{
+  z-index: 1;
   position: relative;
   height: 58px;
   width: 100%;

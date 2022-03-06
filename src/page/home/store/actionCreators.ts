@@ -1,4 +1,4 @@
-import { fetchHomeData, getHomeMoreList } from "./../api";
+import { fetchHomeData, getHomeMoreList } from "../api";
 // import { ThunkDispatch } from "redux-thunk";
 // import { AnyAction } from "redux";
 import { Dispatch } from "redux";
